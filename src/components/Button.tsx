@@ -11,6 +11,7 @@ type ButtonProps = {
   /** Render a plain <a> (use for file downloads / external links). */
   external?: boolean;
   download?: boolean;
+  disabled?: boolean;
 };
 
 const base =
@@ -32,8 +33,9 @@ export default function Button({
   type = "button",
   external = false,
   download = false,
+  disabled = false,
 }: ButtonProps) {
-  const classes = `${base} ${variants[variant]} ${className}`;
+  const classes = `${base} ${variants[variant]} ${disabled ? "pointer-events-none opacity-60" : ""} ${className}`;
 
   if (href && (external || download)) {
     return (
@@ -58,7 +60,7 @@ export default function Button({
   }
 
   return (
-    <button type={type} className={classes}>
+    <button type={type} className={classes} disabled={disabled}>
       {children}
     </button>
   );

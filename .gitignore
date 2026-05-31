@@ -44,3 +44,5 @@ next-env.d.ts
 /heroright.png
 /CV.pdf
 /_cv_*.png
+
+.vercel

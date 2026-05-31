@@ -16,17 +16,39 @@ const contactDetails = [
   { label: "LinkedIn", value: "linkedin.com/in/muhammad-talha", href: profile.linkedin },
 ];
 
+type Status = "idle" | "sending" | "success" | "error";
+
 export default function ContactPage() {
-  const [sent, setSent] = useState(false);
+  const [status, setStatus] = useState<Status>("idle");
+  const [error, setError] = useState("");
   const [form, setForm] = useState({ name: "", email: "", message: "" });
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    // No backend yet — open the user's mail client as a graceful fallback.
-    const subject = encodeURIComponent(`Project inquiry from ${form.name || "your site"}`);
-    const body = encodeURIComponent(`${form.message}\n\n— ${form.name} (${form.email})`);
-    window.location.href = `mailto:${profile.email}?subject=${subject}&body=${body}`;
-    setSent(true);
+    setStatus("sending");
+    setError("");
+    try {
+      const res = await fetch("https://api.web3forms.com/submit", {
+        method: "POST",
+        headers: { "Content-Type": "application/json", Accept: "application/json" },
+        body: JSON.stringify({
+          access_key: process.env.NEXT_PUBLIC_WEB3FORMS_ACCESS_KEY,
+          subject: `Portfolio inquiry from ${form.name}`,
+          from_name: "Portfolio Contact Form",
+          name: form.name,
+          email: form.email,
+          replyto: form.email,
+          message: form.message,
+        }),
+      });
+      const data = await res.json().catch(() => ({}));
+      if (!data.success) throw new Error(data.message || "Something went wrong. Please try again.");
+      setStatus("success");
+      setForm({ name: "", email: "", message: "" });
+    } catch (err) {
+      setStatus("error");
+      setError(err instanceof Error ? err.message : "Something went wrong. Please try again.");
+    }
   };
 
   const update =
@@ -87,13 +109,16 @@ export default function ContactPage() {
             />
           </div>
 
-          <Button type="submit">Send Message</Button>
+          <Button type="submit" disabled={status === "sending"}>
+            {status === "sending" ? "Sending…" : "Send Message"}
+          </Button>
 
-          {sent && (
+          {status === "success" && (
             <p className="flex items-center gap-2 font-mono text-xs text-tertiary">
-              <AIPulse /> Opening your mail client…
+              <AIPulse /> Message sent — I&apos;ll get back to you soon.
             </p>
           )}
+          {status === "error" && <p className="font-mono text-xs text-error">{error}</p>}
         </form>
 
         {/* Details */}
