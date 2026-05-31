@@ -39,3 +39,8 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local reference artifacts (kept out of the repo)
+/heroright.png
+/CV.pdf
+/_cv_*.png
