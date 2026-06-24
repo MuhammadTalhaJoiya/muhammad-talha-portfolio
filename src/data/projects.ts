@@ -33,7 +33,7 @@ export const projects: Project[] = [
     category: "AI / SaaS",
     year: "2025 – 2026",
     blurb:
-      "An end-to-end recruitment platform (React + Next.js) that automates video and audio technical interviews. A resume parsing & scoring module evaluates candidates across 5 skill parameters in under 10s — cutting manual screening by 60%. Backend containerized with Docker and deployed on AWS.",
+      "An end-to-end recruitment platform (React + Next.js) that automates video and audio technical interviews. A resume parsing & scoring module evaluates candidates across 5 skill parameters in under 10s — cutting manual screening by 60%.",
     tags: ["Next.js", "React", "Python", "MongoDB", "Docker", "AWS"],
     gradient: "from-secondary/70 to-tertiary/60",
     href: "https://github.com/MuhammadTalhaJoiya/FYP",
