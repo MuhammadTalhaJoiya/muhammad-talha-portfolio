@@ -91,6 +91,32 @@ export const projects: Project[] = [
     href: "https://e-learning-seven-beige.vercel.app",
     featured: true,
   },
+  {
+    slug: "whatsapp-shipping-bot",
+    title: "WhatsApp Freight Rate Inquiry Bot",
+    shortName: "WhatsApp Bot",
+    category: "AI / Automation",
+    year: "2026",
+    blurb:
+      "A WhatsApp chatbot for Vayani Shipping Line that handles freight rate inquiries end-to-end. Built on n8n with Groq AI for natural-language understanding and Google Sheets as the rate database — customers get instant, accurate quotes 24/7 with no human intervention.",
+    tags: ["n8n", "Groq AI", "WhatsApp", "Google Sheets", "Automation"],
+    gradient: "from-primary/60 to-tertiary/50",
+    href: "https://github.com/MuhammadTalhaJoiya/whatsapp-shipping-bot",
+    featured: true,
+  },
+  {
+    slug: "voice-agent",
+    title: "AI Voice Appointment Scheduling Agent",
+    shortName: "Voice Agent",
+    category: "AI / Voice",
+    year: "2026",
+    blurb:
+      "A fully voice-driven appointment scheduler powered by Groq (LLM), edge-tts (speech synthesis), and FastAPI. Handles natural-language booking conversations, confirms slots, and manages availability — all through speech, with no human operator required.",
+    tags: ["Groq", "FastAPI", "Python", "edge-tts", "Voice AI"],
+    gradient: "from-tertiary/60 to-secondary/50",
+    href: "https://github.com/MuhammadTalhaJoiya/voice-agent",
+    featured: true,
+  },
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);
