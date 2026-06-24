@@ -91,19 +91,6 @@ export const projects: Project[] = [
     href: "https://e-learning-seven-beige.vercel.app",
     featured: true,
   },
-  {
-    slug: "crypto-tracker",
-    title: "Full-Stack Cryptocurrency Tracker",
-    shortName: "Crypto Tracker",
-    category: "Full-Stack / Web3",
-    year: "2025",
-    blurb:
-      "A real-time cryptocurrency tracker with a JavaScript frontend and a dedicated backend that aggregates live price feeds. Supports multi-coin watchlists, historical chart views, and percentage-change alerts — demonstrating frontend/backend integration with live financial data.",
-    tags: ["JavaScript", "Node.js", "REST API", "Web3", "Cryptocurrency"],
-    gradient: "from-primary-container/60 to-secondary/50",
-    href: "https://github.com/MuhammadTalhaJoiya/crypto",
-    featured: true,
-  },
 ];
 
 export const featuredProjects = projects.filter((p) => p.featured);
