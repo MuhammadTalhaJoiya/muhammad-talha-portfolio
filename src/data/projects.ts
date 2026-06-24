@@ -27,16 +27,16 @@ export const projects: Project[] = [
     featured: true,
   },
   {
-    slug: "ai-recruitment",
-    title: "AI-Based Technical Recruitment Platform",
-    shortName: "RecruitAI",
+    slug: "cypher-ai",
+    title: "Cypher AI — Technical Recruitment Platform",
+    shortName: "Cypher AI",
     category: "AI / SaaS",
     year: "2025 – 2026",
     blurb:
       "An end-to-end recruitment platform (React + Next.js) that automates video and audio technical interviews. A resume parsing & scoring module evaluates candidates across 5 skill parameters in under 10s — cutting manual screening by 60%. Backend containerized with Docker and deployed on AWS.",
     tags: ["Next.js", "React", "Python", "MongoDB", "Docker", "AWS"],
     gradient: "from-secondary/70 to-tertiary/60",
-    href: "/projects",
+    href: "https://github.com/MuhammadTalhaJoiya/FYP",
     featured: true,
   },
   {
